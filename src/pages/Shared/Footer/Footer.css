@@ -1,0 +1,10 @@
+.list-style{
+    list-style: none;
+}
+.list-style li{
+    color: rgb(94, 93, 92);
+    margin-left: 70px;
+}
+.foter-style{
+    margin-top: 100px;
+}
