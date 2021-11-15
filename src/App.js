@@ -4,6 +4,7 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import Login from './pages/Authentication/Login/Login';
 import Register from './pages/Authentication/Register/Register';
 import Home from './pages/Home/Home/Home';
+import AddProducts from './pages/ManageProducts/AddProducts/AddProducts';
 import Header from './pages/Shared/Header/Header';
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/add_products">
+              <AddProducts></AddProducts>
             </Route>
             <Route path="/login">
               <Header></Header>

@@ -20,7 +20,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* <input {...register("name", { required: true, maxLength: 40 })} placeholder="name" /> */}
                         <input {...register("email")} type="email" placeholder="Email" />
-                        <input {...register("password")} placeholder="Enter Your Password" />
+                        <input {...register("password")} type="password" placeholder="Enter Your Password" />
                         <input style={{ width: '10%' }} type="submit" />
                     </form>
                     <Link to="/register"><p>New User? Create Account</p></Link>

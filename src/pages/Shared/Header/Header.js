@@ -28,6 +28,7 @@ const Header = () => {
             </Navbar.Text>:
               <Nav.Link> <Image style={{width: '40px',marginRight:'15px'}} src={users?.photoURL} roundedCircle />{users?.displayName}</Nav.Link>}
               <Nav.Link as={NavLink} style={{color: 'white'}} to="/home">Home</Nav.Link>
+              <Nav.Link as={NavLink} style={{color: 'white'}} to="/add_products">Add Products</Nav.Link>
               {!users?.email && <Nav.Link as={NavLink} style={{color: 'white'}} to="/login">Login</Nav.Link>}
               {!users?.email && <Nav.Link as={NavLink} style={{color: 'white'}} to="/register">Register</Nav.Link>}
               {users?.email && <Button onClick={logOut}  variant="secondary" size="sm">Logout</Button>}
