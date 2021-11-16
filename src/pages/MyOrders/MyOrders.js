@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 // import ShowMyOrder from '../ShowMyOrder/ShowMyOrder';
 const MyOrder = () => {
+    const {users} = useAuth();
     const [myOrders,setMyOrders] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/my_orders')
+        fetch(`http://localhost:5000/my_orders?email=${users?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setMyOrders(data)
