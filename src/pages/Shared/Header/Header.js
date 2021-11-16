@@ -29,6 +29,7 @@ const Header = () => {
               <Nav.Link> <Image style={{width: '40px',marginRight:'15px'}} src={users?.photoURL} roundedCircle />{users?.displayName}</Nav.Link>}
               <Nav.Link as={NavLink} style={{color: 'white'}} to="/home">Home</Nav.Link>
               <Nav.Link as={NavLink} style={{color: 'white'}} to="/explore">Explore</Nav.Link>
+              <Nav.Link as={NavLink} style={{color: 'white'}} to="/my-orders">MyOrders</Nav.Link>
               <Nav.Link as={NavLink} style={{color: 'white'}} to="/add_products">Add Products</Nav.Link>
               {!users?.email && <Nav.Link as={NavLink} style={{color: 'white'}} to="/login">Login</Nav.Link>}
               {!users?.email && <Nav.Link as={NavLink} style={{color: 'white'}} to="/register">Register</Nav.Link>}

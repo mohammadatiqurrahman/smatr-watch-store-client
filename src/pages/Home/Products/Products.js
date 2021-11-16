@@ -20,7 +20,7 @@ const Products = () => {
             ></Product>)  
         }
         </Row>
-        <NavLink to="explore"><Button style={{marginTop: '10px', backgroundColor: '#1e3964'}} size="sm">Explore More Products</Button></NavLink>
+        <NavLink to="explore"><Button style={{marginTop: '10px', backgroundColor: '#a6a4a2'}} size="sm">Explore More Products</Button></NavLink>
     </div>
     );
 };
