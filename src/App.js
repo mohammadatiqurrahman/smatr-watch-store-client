@@ -4,9 +4,10 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import Explores from './pages/AllProducts/Explores/Explores';
 import Login from './pages/Authentication/Login/Login';
 import Register from './pages/Authentication/Register/Register';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home/Home';
 import AddProducts from './pages/ManageProducts/AddProducts/AddProducts';
-import MyOrder from './pages/MyOrders/MyOrders';
+// import MyOrder from './pages/MyOrders/MyOrders';
 import PlaceOrder from './pages/OrderProducts/PlaceOrder/PlaceOrder';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import Header from './pages/Shared/Header/Header';
@@ -33,9 +34,12 @@ function App() {
             <PrivateRoute path="/place_order/:orderId">
             <PlaceOrder></PlaceOrder>  
             </PrivateRoute>
-            <Route path="/my-orders">
+            {/* <Route path="/my-orders">
               <Header></Header>
             <MyOrder></MyOrder>
+            </Route> */}
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
             </Route>
             <Route path="/login">
               <Header></Header>

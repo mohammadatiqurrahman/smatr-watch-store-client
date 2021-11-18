@@ -6,11 +6,13 @@ initializeAuthentication();
 const useFirebae = () => {
     const [users, setUsers] = useState({})
     const [error, setError] = useState('')
+    const [isLoading,setIsLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
     // NEW USER REGISTRATION WITH EMAIL AND PASSWORD
     const registerNewUser = (email, password,name) => {
+        setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setError('')
@@ -28,12 +30,14 @@ const useFirebae = () => {
             .catch(error => {
                 setError(error.message)
             })
+            .finally(()=> setIsLoading(false));
 
     }
    
 
     // SIGN IN USING EMAIL AND PASSWORD
     const signInUsingEmailPassword = (email, password) => {
+        setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUsers(result.user)
@@ -42,6 +46,7 @@ const useFirebae = () => {
             .catch(error => {
                 setError(error.message)
             })
+            .finally(()=> setIsLoading(false));
     }
     // SIGNIN WITH GOOGLE
     
@@ -73,6 +78,7 @@ const useFirebae = () => {
         error,
         users,
         logOut,
+        isLoading,
         signInWithGoogle,
         registerNewUser,
         signInUsingEmailPassword
