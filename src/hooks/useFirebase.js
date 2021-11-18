@@ -36,10 +36,12 @@ const useFirebae = () => {
    
 
     // SIGN IN USING EMAIL AND PASSWORD
-    const signInUsingEmailPassword = (email, password) => {
+    const signInUsingEmailPassword = (email, password,location,history) => {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
+                const redirectTo = location?.state?.form || '/';
+                history.replace(redirectTo);
                 setUsers(result.user)
                 setError('')
             })
@@ -61,18 +63,28 @@ const useFirebae = () => {
         })
     }
     const logOut =()=>{
+        setIsLoading(true)
         signOut(auth)
         .then(()=>{
             setUsers({})
         })
+        .catch(error=>{
+
+        })
+        .finally(()=> setIsLoading(false))
     }
     useEffect(()=>{
-        onAuthStateChanged(auth,user=>{
+        const unsubscribed = onAuthStateChanged(auth,user=>{
             if(user){
                 console.log('inside user',user);
                 setUsers(user)
             }
-        })
+            else{
+                setUsers({})
+            }
+            setIsLoading(false);
+        });
+        return () =>unsubscribed;
     },[])
     return {
         error,
