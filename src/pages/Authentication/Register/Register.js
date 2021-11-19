@@ -1,17 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import { Button, Spinner } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './Register.css'
 const Register = () => {
     const {registerNewUser,signInWithGoogle,isLoading} = useAuth();
     const { register, handleSubmit,reset} = useForm();
+    const history = useHistory();
     const onSubmit = data =>{
         if(data.password !== data.password2){
             alert('Password Not Matched! Please Try Again :(')
         }
-        registerNewUser(data.email,data.password,data.name);
+        registerNewUser(data.email,data.password,data.name,history);
         // updateName(data?.name);
         // console.log(data);
         reset();

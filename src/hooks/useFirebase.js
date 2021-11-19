@@ -11,11 +11,12 @@ const useFirebae = () => {
     const auth = getAuth();
 
     // NEW USER REGISTRATION WITH EMAIL AND PASSWORD
-    const registerNewUser = (email, password,name) => {
+    const registerNewUser = (email, password,name,history) => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setError('')
+                history.push('/')
                 const newUser = {email, displayName: name};
                 setUsers(newUser);
                 // send name to firease after creation
@@ -40,7 +41,7 @@ const useFirebae = () => {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const redirectTo = location?.state?.form || '/';
+                const redirectTo = location?.state?.from || '/';
                 history.replace(redirectTo);
                 setUsers(result.user)
                 setError('')
@@ -52,11 +53,13 @@ const useFirebae = () => {
     }
     // SIGNIN WITH GOOGLE
     
-    const signInWithGoogle=()=>{
+    const signInWithGoogle=(location,history)=>{
         signInWithPopup(auth,googleProvider)
         .then(result=>{
             console.log(result.user);
             setUsers(result.user)
+            const redirectTo = location?.state?.from || '/';
+                history.replace(redirectTo);
         })
         .catch(error=>{
             setError(error.message)

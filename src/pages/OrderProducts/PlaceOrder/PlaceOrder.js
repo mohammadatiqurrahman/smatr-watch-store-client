@@ -10,13 +10,13 @@ const PlaceOrder = () => {
     const { orderId } = useParams();
     const [product, setProduct] = useState()
     useEffect(() => {
-        fetch(`http://localhost:5000/single_products/${orderId}`)
+        fetch(`https://peaceful-peak-95625.herokuapp.com/single_products/${orderId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
     const { register, handleSubmit,reset} = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/my_orders', data)
+        axios.post('https://peaceful-peak-95625.herokuapp.com/my_orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('successfull completed order')

@@ -32,6 +32,7 @@ function App() {
               <Explores></Explores>
             </Route>
             <PrivateRoute path="/place_order/:orderId">
+              <Header></Header>
             <PlaceOrder></PlaceOrder>  
             </PrivateRoute>
             {/* <Route path="/my-orders">

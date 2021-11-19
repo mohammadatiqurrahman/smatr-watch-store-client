@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 // import Explores from '../AllProducts/Explores/Explores';
 import AddProducts from '../ManageProducts/AddProducts/AddProducts';
+import ManageOrders from '../ManageProducts/ManageOrders/ManageOrders';
 import MyOrder from '../MyOrders/MyOrders';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
@@ -24,7 +25,7 @@ const Dashboard = () => {
                     <NavLink style={{color: 'white',textDecoration: 'none',  marginLeft:'60px'}} to={`${url}/reviews`}>Review</NavLink><br />
                     <NavLink style={{color: 'white',textDecoration: 'none',  marginLeft:'60px'}} to={`${url}/make_admin`}>Make Admin</NavLink><br />
                     <NavLink style={{color: 'white',textDecoration: 'none',  marginLeft:'60px'}} to={`${url}/add_products`}>Add Products</NavLink><br />
-                    <NavLink style={{color: 'white',textDecoration: 'none',  marginLeft:'60px',}} to={`${url}/add_products`}>Manage All Orders</NavLink>
+                    <NavLink style={{color: 'white',textDecoration: 'none',  marginLeft:'60px',}} to={`${url}/manage_orders`}>Manage All Orders</NavLink>
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-10">
                     <Switch>
@@ -39,6 +40,9 @@ const Dashboard = () => {
                         </Route>
                         <Route path={`${path}/add_products`}>
                         <AddProducts></AddProducts>
+                        </Route>
+                        <Route path={`${path}/manage_orders`}>
+                        <ManageOrders></ManageOrders>
                         </Route>
                     </Switch>
                 </div>

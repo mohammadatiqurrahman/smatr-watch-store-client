@@ -10,7 +10,7 @@ const ReviewForm = () => {
     const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
       console.log(data);
-    axios.post('http://localhost:5000/reviews',data)
+    axios.post('https://peaceful-peak-95625.herokuapp.com/reviews',data)
     .then(res=>{
         if(res.data.insertedId){
             alert('successfull')

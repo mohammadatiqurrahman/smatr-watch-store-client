@@ -5,7 +5,7 @@ import Explore from '../Explore/Explore';
 const Explores = () => {
     const [explores,setExplores] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/getProducts')
+        fetch('https://peaceful-peak-95625.herokuapp.com/getProducts')
         .then(res=>res.json())
         .then(data=>setExplores(data))
     },[])

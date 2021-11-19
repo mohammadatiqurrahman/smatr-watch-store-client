@@ -14,6 +14,9 @@ const Login = () => {
         console.log(data);
         reset();
       };
+      const handleGoogleSignIn=()=>{
+          signInWithGoogle(location,history);
+      }
     return (
         <div>
             <div className="d-flex">
@@ -32,7 +35,7 @@ const Login = () => {
                     }
                     <Link to="/register"><p>New User? Create Account</p></Link>
                     <p>or</p>
-                    <Button onClick={signInWithGoogle} size="sm">Signin With Google</Button>
+                    <Button onClick={handleGoogleSignIn} size="sm">Signin With Google</Button>
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-6">
                     
